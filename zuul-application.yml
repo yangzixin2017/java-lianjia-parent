@@ -1,0 +1,44 @@
+spring:
+  profiles:
+    active: dev
+---
+
+server:
+  port: 9527
+spring:
+  application:
+    name: MICROSERVICE-ZUUL-GATEWAY
+  profiles: dev
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7012/eureka
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true
+zuul:
+  prefix: "/lianjia"
+  ignored-services: "*"
+  routes:
+    plat.serviceId: plat-service
+    plat.path: /plat/**
+---
+server:
+  port: 9528
+spring:
+  application:
+    name: MICROSERVICE-ZUUL-GATEWAY-TEST
+  profiles: test
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7012/eureka
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true
+zuul:
+  prefix: "/lianjia"
+  ignored-services: "*"
+  routes:
+    plat.serviceId: plat-service
+    plat.path: /plat/**
