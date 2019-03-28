@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: av
 ---
 
 server:
@@ -8,7 +8,7 @@ server:
 spring:
   application:
     name: MICROSERVICE-ZUUL-GATEWAY
-  profiles: dev
+  profiles: av
 eureka:
   client:
     service-url:
