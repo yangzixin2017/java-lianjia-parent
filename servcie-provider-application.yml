@@ -7,7 +7,7 @@ server:
 spring:
   application:
     name: PLAT-SERVICE
-  profiles:av
+  profiles: av
 eureka:
   client:
     service-url:
